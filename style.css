@@ -1,0 +1,156 @@
+/* Fundo com foto e degradê rosa suave */
+body {
+  background: 
+    linear-gradient(rgba(255, 105, 180, 0.6), rgba(255, 182, 193, 0.6)),
+    url('fundo.jpg') no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #fff;
+  margin: 0;
+  height: 100vh;
+  overflow-x: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Caixa com sombra suave e arredondada */
+.container {
+  background: rgba(0, 0, 0, 0.35);
+  padding: 40px 50px;
+  border-radius: 25px;
+  text-align: center;
+  box-shadow: 0 0 35px rgba(255, 105, 180, 0.6);
+  max-width: 420px;
+  backdrop-filter: blur(10px);
+}
+
+/* Cabeçalho maior e com sombra */
+h1 {
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 6px #c71585;
+  animation: fadeInDown 1.2s ease forwards;
+}
+
+/* Parágrafo com leve sombra e animação */
+p {
+  font-size: 1.3rem;
+  margin-bottom: 30px;
+  text-shadow: 1px 1px 3px #d87093;
+  animation: fadeInUp 1.2s ease forwards;
+  animation-delay: 0.5s;
+}
+
+/* Botão coração com efeito pulso e hover */
+button#btn-coracao {
+  font-size: 3.5rem;
+  background: transparent;
+  border: none;
+  color: #ff69b4;
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease;
+  user-select: none;
+  animation: pulse 2s infinite;
+  outline-offset: 4px;
+  outline-color: #ff1493;
+}
+
+button#btn-coracao:hover {
+  transform: scale(1.4);
+  color: #ff1493;
+  animation-play-state: paused;
+  outline-style: solid;
+}
+
+/* Mensagem oculta, com fade-in animado */
+.mensagem {
+  font-size: 1.5rem;
+  margin-top: 20px;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  text-shadow: 2px 2px 5px #ff69b4;
+}
+
+.mensagem.mostrar {
+  opacity: 1;
+  animation: fadeInMessage 1s ease forwards;
+}
+
+/* Corações animados */
+#efeito-coracoes {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.coracao {
+  position: absolute;
+  bottom: 0;
+  font-size: 26px;
+  color: #ff1493;
+  animation-name: flutuar;
+  animation-timing-function: ease-out;
+  animation-iteration-count: 1;
+  user-select: none;
+}
+
+/* Animações */
+@keyframes flutuar {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-180px) scale(1.7);
+    opacity: 0;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 5px #ff69b4);
+  }
+  50% {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 15px #ff1493);
+  }
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInMessage {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
